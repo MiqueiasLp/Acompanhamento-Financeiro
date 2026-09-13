@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acompanhamento Financeiro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen text-gray-800 pb-10">
+
+  <!-- Cabeçalho -->
+  <header class="bg-blue-600 text-white py-6 shadow-md mb-8">
+    <h1 class="text-3xl font-bold text-center">Acompanhamento Financeiro</h1>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4">
+    <div class="space-y-6">
+
+      <!-- Cards de Resumo -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-green-500">
+          <h2 class="text-sm font-semibold text-gray-500 uppercase">Entradas</h2>
+          <p id="Total-entradas" class="text-2xl font-bold text-green-600 mt-1">R$ 0,00</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-red-500">
+          <h2 class="text-sm font-semibold text-gray-500 uppercase">Saídas</h2>
+          <p id="Total-saidas" class="text-2xl font-bold text-red-600 mt-1">R$ 0,00</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-blue-500">
+          <h2 class="text-sm font-semibold text-gray-500 uppercase">Saldo Total</h2>
+          <p id="Total-saldo" class="text-2xl font-bold text-gray-800 mt-1">R$ 0,00</p>
+        </div>
+
+      </div>
+
+      <!-- Formulário de Cadastro -->
+      <form id="Fincanceiro-forms" class="bg-white p-6 rounded-lg shadow-sm space-y-4">
+        <h3 class="text-lg font-bold text-gray-700 border-b pb-2">Nova Transação</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" id="Descricao" placeholder="Descrição (ex: Almoço)" required class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="number" step="0.01" id="Valor" placeholder="Valor (R$)" required class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <select id="Tipo" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+            <option value="entrada">Entrada</option>
+            <option value="saida">Saída</option>
+          </select>
+
+          <input type="text" id="Categoria" placeholder="Categoria (ex: Alimentação)" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <select id="Metodo-pagamento" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+            <option value="" disabled selected>Método de Pagamento</option>
+            <option value="Pix">Pix</option>
+            <option value="Cartão de Crédito">Cartão de Crédito</option>
+            <option value="Cartão de Débito">Cartão de Débito</option>
+          </select>
+          <input type="text" id="Cartao-nome" placeholder="Nome no Cartão (opcional)" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200">
+          Adicionar Transação
+        </button>
+      </form>
+
+      <!-- Lista de Transações -->
+      <div class="bg-white p-6 rounded-lg shadow-sm">
+        <h3 class="text-lg font-bold text-gray-700 border-b pb-3 mb-4">Histórico de Transações</h3>
+        <ul id="Transacoes-lista" class="divide-y divide-gray-100">
+          <!-- As transações serão adicionadas aqui pelo script -->
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
